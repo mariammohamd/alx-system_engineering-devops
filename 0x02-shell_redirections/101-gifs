@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name '*.gif' | awk -F/ '{print substr($NF, 1, length($NF)-4)}' | LC_ALL=C sort -f -d | tr '\n' '\0' | xargs -0 -I{} basename -a -s .gif "{}" && echo
+find .  -type f -name '*.gif' | rev | cut -d/ -f1 | cut -d. -f2,3 | rev | LC_ALL=C sort -f
